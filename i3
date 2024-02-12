@@ -15,7 +15,7 @@ set $mod Mod4
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 8
+font pango:monospace 8
 
 # class                 border  bground text    indicator child_border
 client.focused          #32325a #32325a #ffffff #32325a   #32325a
@@ -47,12 +47,18 @@ floating_modifier $mod
 
 # kill focused window
 bindsym $mod+Shift+q kill
+bindsym $mod+q exec alacritty 
+bindsym $mod+e exec thunar
+bindsym $mod+p exec pamixer -d 5
+bindsym $mod+o exec pamixer -i 5
+bindsym $mod+I exec pamixer -t
+
 
 # start dmenu (a program launcher)
 bindsym $mod+r exec rofi -show drun
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
+# There also is the (new) i3-dmenu-desktop which only
+# displays applications shipping a .desktop file. It is a
+# wrapper around dmenu, so you need that installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
@@ -91,7 +97,7 @@ bindsym F11 fullscreen
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+t layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -148,10 +154,11 @@ mode "resize" {
         bindsym $mod+Escape mode "default"
 }
 
-bindsym $mod+t mode "resize"
+bindsym $mod+y mode "resize"
 
+exec_always --no-startup-id picom
+exec_always /home/efeb/.config/polybar/launch.sh &
 exec_always --no-startup-id nitrogen --restore
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-
