@@ -18,22 +18,22 @@ set $mod Mod4
 font pango:monospace 8
 
 # class                 border  bground text    indicator child_border
-client.focused          #32325a #32325a #ffffff #32325a   #32325a
-client.focused_inactive #171717 #171717 #a3a3a3 #171717   #171717
-client.unfocused        #171717 #171717 #a3a3a3 #171717   #171717
-client.urgent           #ff0000 #ff0000 #000000 #FF5555   #ff0000
-client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+client.focused          #a89984 #a89984 #ebdbb2 #a89984   #a89984
+client.focused_inactive #282828 #282828 #ebdbb2 #282828   #282828
+client.unfocused        #282828 #282828 #ebdbb2 #282828   #282828
+client.urgent           #cc241d #cc241d #ebdbb2 #cc241d   #cc241d
+client.placeholder      #928374 #928374 #928374 #928374   #928374
 
 client.background       #545454
 
 ###GAPS?##
 
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 4
 
 gaps inner 5
 gaps outer 1
-smart_gaps on
-smart_borders on
+smart_gaps off
+#smart_borders off
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -49,8 +49,8 @@ floating_modifier $mod
 bindsym $mod+Shift+q kill
 bindsym $mod+q exec alacritty 
 bindsym $mod+e exec thunar
-bindsym $mod+p exec pamixer -d 5
-bindsym $mod+o exec pamixer -i 5
+bindsym $mod+o exec pamixer -d 5
+bindsym $mod+p exec pamixer -i 5
 bindsym $mod+I exec pamixer -t
 
 
